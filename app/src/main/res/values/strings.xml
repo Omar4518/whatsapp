@@ -13,13 +13,12 @@
     <string name="button_login">Login</string>
     <string name="text_dont_have_account">Dont have account? </string>
     <string name="login_create_new_account_text">Create New Account</string>
-
-
-
-
-
-
-
-
-
+    <!--Register User strings-->
+    <string name="edit_text_name_register_hint_user">Name</string>
+    <string name="edit_text_address_register_hint_user">Address</string>
+    <string name="text_phone_register_user">Phone</string>
+    <string name="edit_text_register_user">Register</string>
+    <string name="edit_text_email_register_user">Email</string>
+    <string name="edit_text_Password_register_user">Password</string>
+    <string name="button_register_user">Create Account</string>
 </resources>

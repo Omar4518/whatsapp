@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorAccent">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,7 +53,8 @@
                     android:layout_marginRight="17dp"
                     android:hint="@string/user_email"
                     android:inputType="textEmailAddress|textMultiLine"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:background="@drawable/inputs"/>
 
                 <EditText
                     android:id="@+id/login_password_user"
@@ -64,7 +66,9 @@
                     android:layout_marginRight="17dp"
                     android:hint="@string/user_pass"
                     android:inputType="textPassword"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:background="@drawable/inputs"
+                    />
 
 
                 <TextView
