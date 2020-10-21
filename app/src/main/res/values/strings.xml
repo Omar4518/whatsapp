@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">whatsapp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Fragments-->
+    <string name="contacts_fragment">Contacts Fragment</string>
+    <string name="chats_fragment">Chats Fragment</string>
+    <string name="groups_fragment">Groups Fragment</string>
+    <!-- Login Activity Strings-->
+    <string name="Login">Login</string>
+    <string name="user_email">Email</string>
+    <string name="user_pass">Password</string>
+    <string name="login_user_forget_pass">Forget Password?</string>
+    <string name="button_login">Login</string>
+    <string name="text_dont_have_account">Dont have account? </string>
+    <string name="login_create_new_account_text">Create New Account</string>
+
+
+
+
+
+
+
+
+
+</resources>
