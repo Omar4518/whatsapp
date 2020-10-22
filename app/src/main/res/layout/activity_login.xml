@@ -46,7 +46,7 @@
 
                 <EditText
 
-                    android:id="@+id/login_email_user"
+                    android:id="@+id/login_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="17dp"
@@ -57,9 +57,9 @@
                     android:background="@drawable/inputs"/>
 
                 <EditText
-                    android:id="@+id/login_password_user"
+                    android:id="@+id/login_password"
                     android:layout_width="match_parent"
-                    android:layout_below="@id/login_email_user"
+                    android:layout_below="@id/login_email"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="17dp"
                     android:layout_marginTop="25dp"
@@ -72,10 +72,10 @@
 
 
                 <TextView
-                    android:id="@+id/forget_password_link_login_user"
+                    android:id="@+id/forget_password_link_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/login_password_user"
+                    android:layout_below="@id/login_password"
                     android:layout_marginTop="17dp"
                     android:text="@string/login_user_forget_pass"
                     android:textAlignment="textEnd"
@@ -83,7 +83,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
                 <Button
-                    android:id="@+id/login_button_user"
+                    android:id="@+id/login_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="19dp"
@@ -94,53 +94,62 @@
                     android:textAllCaps="false"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp"
-                    android:layout_below="@id/forget_password_link_login_user"/>
+                    android:layout_below="@id/forget_password_link_login"/>
 
 
-                <com.google.android.gms.common.SignInButton
-                    android:id="@+id/login_button_user_google"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:textAlignment="center"
-                    android:layout_marginTop="8dp"
-                    android:layout_below="@id/login_button_user"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text=""
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_below="@id/login_button_user"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/text_or"
-                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/text_dont_have_account"
-                    android:layout_below="@id/login_button_user_google"
+                    android:layout_below="@id/login_button"
                     android:text="@string/text_dont_have_account"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_margin="10dp" />
 
                 <TextView
-                    android:id="@+id/login_create_new_account_text_user"
+                    android:id="@+id/login_create_new_account_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="19dp"
-                    android:layout_marginRight="19dp"
+                     android:layout_margin="10dp"
                     android:text="@string/login_create_new_account_text"
                     android:textAllCaps="false"
                     android:textSize="16sp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:layout_below="@id/login_button_user_google"
+                    android:layout_below="@id/login_button"
                     android:layout_toEndOf="@id/text_dont_have_account"
                     android:layout_marginTop="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="@android:color/darker_gray"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="15"
+                    android:id="@+id/text_or"
+                    android:text="@string/text_or"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="16dp"
+                    android:layout_below="@id/login_create_new_account_text"
+                    />
+                <Button
+                    android:id="@+id/login_button_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginRight="19dp"
+                    android:padding="8dp"
+                    android:drawableStart="@drawable/phone"
+                    android:background="@drawable/buttons"
+                    android:text="@string/button_login_phone"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="20sp"
+                    android:layout_below="@id/text_or"
+                    android:layout_centerInParent="true"/>
+
 
 
             </RelativeLayout>

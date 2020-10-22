@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,87 +25,98 @@ import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
-    private EditText RegisterName,RegisterPhone, RegisterEmail, RegisterPass;
+    private EditText Email,Password;
     private Button RegisterButton;
+    private TextView AlreadyHaveAccount;
     private FirebaseAuth registerAuth;
     private ProgressDialog loadingBar;
     private DatabaseReference RootRef;
     private FirebaseDatabase reference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        registerAuth = FirebaseAuth.getInstance();
+        registerAuth= FirebaseAuth.getInstance();
         RootRef = FirebaseDatabase.getInstance().getReference();
-        if(registerAuth.getCurrentUser() != null ){
-            SendUserToMainActivity();
-            finish();
-        }
-        InitializeFields();//bandah 3la elmethod eli b3rf fiha eli mogod feldesign
+        InitializeFields();
+
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CreateNewAccount();
             }
         });
+        AlreadyHaveAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendUserToLoginActivity();
+            }
+        });
     }
-    private void CreateNewAccount() {
-        String userEmail = RegisterEmail.getText().toString().trim();//ba5od elemail eli katbo
-        String userPassword = RegisterPass.getText().toString().trim();//ba5od elpass eli katbo
 
-        if (TextUtils.isEmpty(userEmail)) {//lw sab mkan elemail fady y2olo ektb email
-            RegisterEmail.setError("Email Is Required");
-            return;
+    private void CreateNewAccount()
+    {
+        String email = Email.getText().toString();
+        String password = Password.getText().toString();
+        if (TextUtils.isEmpty(email))
+        {
+            Email.setError("Email Is Required");
         }
-        if (TextUtils.isEmpty(userPassword)) {
-            RegisterPass.setError("Password Is Required");//lw sab mkan elpass fady y2olo ektb elpass
-        } else {
-            loadingBar.setTitle("Creating New Account");//lma y3ml account ytl3 yktblo en elaccount bit3aml
+        if (TextUtils.isEmpty(password))
+        {
+            Password.setError("Password Is Required");
+        }
+        else
+        {
+            loadingBar.setTitle("Creating New Account");
             loadingBar.setMessage("Please Wait");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
-            registerAuth.createUserWithEmailAndPassword(userEmail, userPassword)
+            registerAuth.createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                {
-                                    //lw 3aml elaccount s7 ytl3lo massg en elaccount et3aml
-                                    reference = FirebaseDatabase.getInstance();
-                                    RootRef = reference.getReference("UsersCredentials");
-                                    //get all the values from the fields
-                                    String currentUser = Objects.requireNonNull(registerAuth.getCurrentUser()).getUid();
-                                    String name = RegisterName.getEditableText().toString();
-                                    String email = RegisterEmail.getEditableText().toString();
-                                    String password = RegisterPass.getEditableText().toString();
-                                    String phone = RegisterPhone.getEditableText().toString();
-                                    //save in firebase
-                                    UserHelper userHelper = new UserHelper(name,email,password,phone);
-                                    SendUserToMainActivity();
-                                    RootRef.child(currentUser).setValue(userHelper);
-                                    Toast.makeText(RegisterActivity.this, "Account Created Successfully", Toast.LENGTH_LONG).show();
-                                    loadingBar.dismiss();
-                                }
-                            } else {//lw fe error ytl3lo elerror
-                                String message = task.getException().toString();
-                                Toast.makeText(RegisterActivity.this, "Error" + message, Toast.LENGTH_SHORT).show();
-                                loadingBar.dismiss();
+                            if(task.isSuccessful())
+                            {
+                                reference = FirebaseDatabase.getInstance();
+                                RootRef = reference.getReference("Users");
+                                String currentUser = Objects.requireNonNull(registerAuth.getCurrentUser()).getUid();
+                                String email = Email.getEditableText().toString();
+                                String password = Password.getEditableText().toString();
+                                UserHelper userHelper = new UserHelper(email,password);
+                                SendUserToMainActivity();
+                                RootRef.child(currentUser).setValue(userHelper);
+                                Toast.makeText(RegisterActivity.this, "Account Created Successfully", Toast.LENGTH_LONG).show();
                             }
+                            else
+                                {
+                                    String message = Objects.requireNonNull(task.getException()).toString();
+                                    Toast.makeText(RegisterActivity.this, "Error : "+message, Toast.LENGTH_LONG).show();
+
+                                }
+                            loadingBar.dismiss();
+
                         }
                     });
         }
     }
 
 
-    private void InitializeFields() {//t3ref eli mogod feldesign
-        RegisterName = (EditText) findViewById(R.id.text_view_name_register);
-        RegisterPhone = (EditText) findViewById(R.id.text_phone_register);
-        RegisterEmail = (EditText) findViewById(R.id.text_view_email_register);
-        RegisterPass = (EditText) findViewById(R.id.text_view_password_register);
-        RegisterButton = (Button) findViewById(R.id.button_register);
-        loadingBar = new ProgressDialog(this);
 
+
+    private void SendUserToLoginActivity()
+    {
+        Intent loginIntent = new Intent(RegisterActivity.this,LoginActivity.class);
+        startActivity(loginIntent);
+    }
+
+    private void InitializeFields()
+    {
+        Email = (EditText) findViewById(R.id.edit_text_email_register);
+        Password = (EditText) findViewById(R.id.edit_text_password_register);
+        RegisterButton = (Button) findViewById(R.id.button_register);
+        AlreadyHaveAccount = (TextView) findViewById(R.id.already_have_account);
+        loadingBar = new ProgressDialog(this);
     }
     private void SendUserToMainActivity() {
         Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);

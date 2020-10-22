@@ -45,56 +45,30 @@
           android:orientation="vertical"
           android:padding="16dp"
           >
-
-
         <EditText
-            android:id="@+id/text_view_name_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/edit_text_name_register_hint_user"
-            android:padding="16dp"
-            android:layout_margin="10dp"
-            android:inputType="textPersonName"
-            android:background="@drawable/inputs"
-            />
-        <EditText
-            android:id="@+id/text_phone_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/text_phone_register_user"
-            android:padding="16dp"
-            android:background="@drawable/inputs"
-            android:layout_below="@id/text_view_name_register"
-            android:layout_margin="10dp"
-
-            />
-
-        <EditText
-            android:id="@+id/text_view_email_register"
+            android:id="@+id/edit_text_email_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/edit_text_email_register_user"
             android:inputType="textEmailAddress"
             android:background="@drawable/inputs"
-            android:layout_below="@id/text_phone_register"
             android:layout_margin="10dp"
 
             android:padding="16dp"
             />
         <EditText
-            android:id="@+id/text_view_password_register"
+            android:id="@+id/edit_text_password_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/edit_text_Password_register_user"
             android:inputType="textPassword"
             android:padding="16dp"
             android:layout_margin="10dp"
-
             android:background="@drawable/inputs"
-            android:layout_below="@id/text_view_email_register"/>
+            android:layout_below="@id/edit_text_email_register"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="36dp"
@@ -103,11 +77,21 @@
             android:text="@string/button_register_user"
             android:textColor="@android:color/white"
             android:id="@+id/button_register"
-            android:layout_below="@id/text_view_password_register"
+            android:layout_below="@id/edit_text_password_register"
             android:layout_centerInParent="true"
-            android:layout_margin="80dp"/>
-
-
+            android:layout_margin="30dp" />
+        <TextView
+            android:id="@+id/already_have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/already_have_account"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_below="@id/button_register"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"/>
 
       </RelativeLayout>
 

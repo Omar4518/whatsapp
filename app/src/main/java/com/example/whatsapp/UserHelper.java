@@ -1,25 +1,17 @@
 package com.example.whatsapp;
 
 public class UserHelper {
-    String name,email,password,phone,address;
+    String email,password;
 
     public UserHelper() {
     }
 
-    public UserHelper(String name, String email, String password, String phone) {
-        this.name = name;
+    public UserHelper(String email, String password) {
         this.email = email;
         this.password = password;
-        this.phone = phone;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;
@@ -37,12 +29,6 @@ public class UserHelper {
         this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
 }

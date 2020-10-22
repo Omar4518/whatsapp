@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">whatsapp</string>
+    <string name="app_name">WhatsApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <!-- Fragments-->
     <string name="contacts_fragment">Contacts Fragment</string>
@@ -11,8 +11,10 @@
     <string name="user_pass">Password</string>
     <string name="login_user_forget_pass">Forget Password?</string>
     <string name="button_login">Login</string>
+    <string name="text_or">OR</string>
     <string name="text_dont_have_account">Dont have account? </string>
     <string name="login_create_new_account_text">Create New Account</string>
+    <string name="button_login_phone">Login Using Phone</string>
     <!--Register User strings-->
     <string name="edit_text_name_register_hint_user">Name</string>
     <string name="edit_text_address_register_hint_user">Address</string>
@@ -21,4 +23,18 @@
     <string name="edit_text_email_register_user">Email</string>
     <string name="edit_text_Password_register_user">Password</string>
     <string name="button_register_user">Create Account</string>
+    <string name="already_have_account">Already Have An Account?</string>
+    <!-- Menu -->
+    <string name="find_friends">Find Friends</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="create_group">Create Group</string>
+
+    <!-- settings strings -->
+    <string name="hint_name_settings">User Name</string>
+    <string name="hint_statues_settings">Statues</string>
+    <string name="button_update_settings">Update Statues</string>
+
+
+
 </resources>

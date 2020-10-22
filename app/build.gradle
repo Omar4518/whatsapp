@@ -32,6 +32,8 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
     //noinspection GradleCompatible
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
     implementation 'com.google.firebase:firebase-auth:19.4.0'
