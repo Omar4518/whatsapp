@@ -29,12 +29,12 @@
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
     <string name="create_group">Create Group</string>
-
     <!-- settings strings -->
     <string name="hint_name_settings">User Name</string>
     <string name="hint_statues_settings">Statues</string>
     <string name="button_update_settings">Update Statues</string>
-
+    <!-- group chat activity-->
+    <string name="edit_text_message">Type a message</string>
 
 
 </resources>

@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#005048</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="confirmButton">#004D40</color>
+    <color name="editTextGroupChat">#E0F2F1</color>
 
 </resources>
