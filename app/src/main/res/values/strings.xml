@@ -35,6 +35,13 @@
     <string name="button_update_settings">Update Statues</string>
     <!-- group chat activity-->
     <string name="edit_text_message">Type a message</string>
+    <!--phone activity-->
+    <string name="edit_text_enter_number">Phone Number</string>
+    <string name="edit_text_verification_code">Code</string>
+    <string name="send_code_button">Send Code</string>
+    <string name="verify_account_button">Verify</string>
+
+
 
 
 </resources>

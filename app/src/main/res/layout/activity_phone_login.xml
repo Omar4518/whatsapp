@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhoneLoginActivity">
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone_number_input"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/inputs"
+        android:padding="8dp"
+        android:hint="@string/edit_text_enter_number"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        android:textStyle="bold"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/verification_code"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/inputs"
+        android:padding="8dp"
+        android:hint="@string/edit_text_verification_code"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        android:layout_below="@id/phone_number_input"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        android:inputType="number"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/send_verifi_code_button"
+        android:text="@string/send_code_button"
+        android:background="@drawable/buttons"
+        android:padding="8dp"
+        android:layout_below="@id/phone_number_input"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="150dp"
+        android:textColor="@color/colorAccent"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verify_account_button"
+        android:text="@string/verify_account_button"
+        android:background="@drawable/buttons"
+        android:padding="8dp"
+        android:layout_below="@id/phone_number_input"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="150dp"
+        android:textColor="@color/colorAccent"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

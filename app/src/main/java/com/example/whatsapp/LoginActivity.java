@@ -31,7 +31,7 @@ import java.util.Objects;
 import java.util.logging.Logger;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button LoginButton,LoginPhoneButton;
+    private Button LoginButton,phoneLoginButton;
     private EditText Email,Password;
     private TextView ForgetPassword,NeedNewAccount;
     private FirebaseAuth mAuth;
@@ -55,7 +55,17 @@ public class LoginActivity extends AppCompatActivity {
                 AllowUserToLogin();
             }
         });
+        phoneLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                SendUserToPhoneActivity();
+            }
+        });
+
     }
+
+
 
     private void AllowUserToLogin()
     {
@@ -105,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void InitializeFields() {
         LoginButton =(Button) findViewById(R.id.login_button);
-        LoginPhoneButton = (Button) findViewById(R.id.login_button_phone);
+        phoneLoginButton = (Button) findViewById(R.id.login_button_phone);
         Email = (EditText) findViewById(R.id.login_email);
         Password = (EditText) findViewById(R.id.login_password);
         ForgetPassword = (TextView) findViewById(R.id.forget_password_link_login);
@@ -117,5 +127,10 @@ public class LoginActivity extends AppCompatActivity {
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
+    }
+    private void SendUserToPhoneActivity()
+    {
+        Intent phoneIntent = new Intent(LoginActivity.this,PhoneLoginActivity.class);
+        startActivity(phoneIntent);
     }
 }
