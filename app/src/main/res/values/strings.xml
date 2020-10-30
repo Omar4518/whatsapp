@@ -2,7 +2,7 @@
     <string name="app_name">WhatsApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <!-- Fragments-->
-    <string name="contacts_fragment">Contacts Fragment</string>
+    <string name="contacts_fragment">com.example.whatsapp.Contacts Fragment</string>
     <string name="chats_fragment">Chats Fragment</string>
     <string name="groups_fragment">Groups Fragment</string>
     <!-- Login Activity Strings-->
@@ -40,6 +40,13 @@
     <string name="edit_text_verification_code">Code</string>
     <string name="send_code_button">Send Code</string>
     <string name="verify_account_button">Verify</string>
+    <!--find friends activity -->
+    <string name="user_name_find_friends">user name</string>
+    <string name="user_status_find_friends">user name</string>
+    <!-- profile activity -->
+    <string name="user_name_profile">user name</string>
+    <string name="user_statues_profile">Hey Im using WhatsApp</string>
+    <string name="user_send_request_button">Send Message</string>
 
 
 
