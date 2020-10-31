@@ -251,4 +251,10 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(mainIntent);
         finish();
     }
+    public void onBackPressed()
+    {
+        Intent mainIntent = new Intent(SettingsActivity.this,MainActivity.class);
+        startActivity(mainIntent);
+        super.onBackPressed();
+    }
 }

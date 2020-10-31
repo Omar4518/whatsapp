@@ -2,7 +2,7 @@
     <string name="app_name">WhatsApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <!-- Fragments-->
-    <string name="contacts_fragment">com.example.whatsapp.Contacts Fragment</string>
+    <string name="contacts_fragment">Contacts Fragment</string>
     <string name="chats_fragment">Chats Fragment</string>
     <string name="groups_fragment">Groups Fragment</string>
     <!-- Login Activity Strings-->
