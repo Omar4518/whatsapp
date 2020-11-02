@@ -47,6 +47,8 @@
     <string name="user_name_profile">user name</string>
     <string name="user_statues_profile">Hey Im using WhatsApp</string>
     <string name="user_send_request_button">Send Message</string>
+    <string name="user_cancel_request_button">Cancel Request</string>
+
 
 
 

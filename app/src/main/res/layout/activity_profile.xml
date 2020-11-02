@@ -54,5 +54,21 @@
     android:layout_marginTop="150dp"
     android:id="@+id/button_send_request"
     android:textAllCaps="false" />
+     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="65dp"
+        android:layout_marginRight="65dp"
+        android:layout_below="@id/button_send_request"
+        android:background="@drawable/buttons"
+        android:text="@string/user_cancel_request_button"
+        android:textColor="@android:color/white"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/button_decline_request"
+        android:textAllCaps="false"
+         android:visibility="invisible"/>
+
+
 
 </RelativeLayout>
