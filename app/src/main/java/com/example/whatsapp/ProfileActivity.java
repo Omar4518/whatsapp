@@ -183,6 +183,10 @@ public class ProfileActivity extends AppCompatActivity
                     {
                         AcceptChatRequest();
                     }
+                    if (currentState.equals("friends"))
+                    {
+                        RemoveSpecificContact();
+                    }
                 }
             });
         }
@@ -294,6 +298,36 @@ public class ProfileActivity extends AppCompatActivity
                                                                 }
                                                             }
                                                         });
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
+    }
+    private void RemoveSpecificContact()
+    {
+       contactsRef.child(senderUserId).child(receiverUserId)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                           contactsRef.child(receiverUserId).child(senderUserId)
+                                    .removeValue()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task)
+                                        {
+                                            if (task.isSuccessful())
+                                            {
+                                                sendMessageButton.setEnabled(true);
+                                                currentState="new";
+                                                sendMessageButton.setText("Send Message");
+                                                declineRequestButton.setVisibility(View.INVISIBLE);
+                                                declineRequestButton.setEnabled(false);
                                             }
                                         }
                                     });
