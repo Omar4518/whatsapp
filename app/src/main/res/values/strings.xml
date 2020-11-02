@@ -42,7 +42,7 @@
     <string name="verify_account_button">Verify</string>
     <!--find friends activity -->
     <string name="user_name_find_friends">user name</string>
-    <string name="user_status_find_friends">user name</string>
+    <string name="user_status_find_friends">user statues</string>
     <!-- profile activity -->
     <string name="user_name_profile">user name</string>
     <string name="user_statues_profile">Hey Im using WhatsApp</string>
