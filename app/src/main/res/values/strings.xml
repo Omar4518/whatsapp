@@ -43,14 +43,15 @@
     <!--find friends activity -->
     <string name="user_name_find_friends">user name</string>
     <string name="user_status_find_friends">user statues</string>
+    <string name="button_accept">Accept</string>
+    <string name="button_deny">Deny</string>
     <!-- profile activity -->
     <string name="user_name_profile">user name</string>
     <string name="user_statues_profile">Hey Im using WhatsApp</string>
     <string name="user_send_request_button">Send Message</string>
     <string name="user_cancel_request_button">Cancel Request</string>
-
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
