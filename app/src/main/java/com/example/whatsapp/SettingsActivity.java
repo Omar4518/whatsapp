@@ -13,8 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
+    import androidx.appcompat.widget.Toolbar;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
+    import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,6 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
     private StorageReference userProfileImageRef;
     private ProgressDialog loadingBar;
 
+private Toolbar settingsToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +96,12 @@ public class SettingsActivity extends AppCompatActivity {
         userStatues = (EditText) findViewById(R.id.set_user_statues_settings);
         userProfileImage = (CircleImageView) findViewById(R.id.set_profile_image_settings);
         loadingBar = new ProgressDialog(this);
+
+        settingsToolbar = (Toolbar) findViewById(R.id.settings_toolbar);
+        setSupportActionBar(settingsToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setTitle("Settings");
     }
 
 
@@ -181,10 +190,10 @@ public class SettingsActivity extends AppCompatActivity {
         }
         else
         {
-            HashMap <String,String> profileMap = new HashMap<>();
+            HashMap <String,Object> profileMap = new HashMap<>();
             profileMap.put("name",setUserName);
             profileMap.put("statues",setStatues);
-            RootRef.child("Users Profile").child(currentUserId).setValue(profileMap)
+            RootRef.child("Users Profile").child(currentUserId).updateChildren(profileMap)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
