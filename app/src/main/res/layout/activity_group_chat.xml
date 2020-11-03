@@ -48,7 +48,7 @@
             android:id="@+id/input_group_mssg"
             android:hint="@string/edit_text_message"
             android:padding="12dp"
-            android:background="@drawable/edit_text_group_chat"
+            android:background="@drawable/edit_text_chat"
             />
         <ImageButton
             android:layout_width="50dp"
