@@ -55,6 +55,10 @@
     <!--custom chat bar strings-->
     <string name="user_name_chat_bar">Display User Name</string>
     <string name="user_last_seen_bar">Last Seen</string>
+    <!-- message layout strings-->
+    <string name="text_view_receiver_message">receiver message here</string>
+    <string name="text_view_sender_message">sender message here</string>
+
 
 
 </resources>

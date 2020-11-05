@@ -7,4 +7,5 @@
     <color name="editTextGroupChat">#E0F2F1</color>
     <color name="ButtonAccept">#03FF0D</color>
     <color name="ButtonDeny">#FD0320</color>
+    <color name="senderMessagesLayout">#E0FFC7</color>
 </resources>
