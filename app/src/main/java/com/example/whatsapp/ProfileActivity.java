@@ -46,8 +46,6 @@ public class ProfileActivity extends AppCompatActivity
         userRef= FirebaseDatabase.getInstance().getReference().child("Users Profile");
         chatRequestRef= FirebaseDatabase.getInstance().getReference().child("Chat Requests");
         contactsRef= FirebaseDatabase.getInstance().getReference().child("Contacts");
-        notificationRef= FirebaseDatabase.getInstance().getReference().child("Notification");
-
 
         receiverUserId = Objects.requireNonNull(Objects.requireNonNull(getIntent().getExtras()).get("visitUserId")).toString();
         senderUserId= mAuth.getCurrentUser().getUid();
@@ -217,31 +215,13 @@ public class ProfileActivity extends AppCompatActivity
                                         {
                                             if (task.isSuccessful())
                                             {
-                                                HashMap<String,String> chatNotificationMap = new HashMap<>();
-                                                chatNotificationMap.put("from",senderUserId);
-                                                chatNotificationMap.put("type","request");
-                                                notificationRef.child(receiverUserId).push()
-                                                        .setValue(chatNotificationMap)
-                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull Task<Void> task)
-                                                            {
-                                                                if (task.isSuccessful())
-                                                                {
-                                                                    sendMessageButton.setEnabled(true);
-                                                                    currentState = "request_sent";
-                                                                    sendMessageButton.setText("Cancel Request");
-                                                                }
-                                                            }
-                                                        });
-
-
-
+                                                sendMessageButton.setEnabled(true);
+                                                currentState = "request_sent";
+                                                sendMessageButton.setText("Cancel Request");
 
                                             }
                                         }
                                     });
-
                         }
                     }
                 });

@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.installations.InstallationTokenResult;
 
 import java.util.Objects;
 
@@ -32,13 +34,15 @@ public class  RegisterActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private DatabaseReference RootRef;
     private FirebaseDatabase reference;
+    private String currentUserId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        InitializeFields();
+
         registerAuth= FirebaseAuth.getInstance();
         RootRef = FirebaseDatabase.getInstance().getReference();
-        InitializeFields();
 
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override

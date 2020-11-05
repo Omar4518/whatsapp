@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.installations.FirebaseInstallations;
 
 import java.util.Objects;
 import java.util.logging.Logger;
@@ -38,6 +39,7 @@ public class  LoginActivity extends AppCompatActivity {
     private TextView ForgetPassword,NeedNewAccount;
     private FirebaseAuth mAuth;
     private ProgressDialog loadingBar;
+    private DatabaseReference usersRef;
 
 
     @Override
@@ -45,6 +47,7 @@ public class  LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mAuth=FirebaseAuth.getInstance();
+        usersRef = FirebaseDatabase.getInstance().getReference().child("Users Profile");
         InitializeFields();
         NeedNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +100,7 @@ public class  LoginActivity extends AppCompatActivity {
                      public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
+
                             SendUserToMainActivity();
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_LONG).show();
                         }
