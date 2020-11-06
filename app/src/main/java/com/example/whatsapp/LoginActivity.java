@@ -22,6 +22,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -100,9 +101,22 @@ public class  LoginActivity extends AppCompatActivity {
                      public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
-
-                            SendUserToMainActivity();
-                            Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_LONG).show();
+                            String currentUserId = mAuth.getCurrentUser().getUid();
+                            String deviceToken = FirebaseInstanceId.getInstance().getToken();
+                            usersRef.child(currentUserId).child("device_token")
+                                    .setValue(deviceToken)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task)
+                                        {
+                                            if (task.isSuccessful())
+                                            {
+                                                SendUserToMainActivity();
+                                                Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_LONG).show();
+                                                loadingBar.dismiss();
+                                            }
+                                        }
+                                    });
                         }
                         else
                         {

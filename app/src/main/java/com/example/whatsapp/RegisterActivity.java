@@ -21,12 +21,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.installations.InstallationTokenResult;
 
 import java.util.Objects;
 
 public class  RegisterActivity extends AppCompatActivity {
-    private FirebaseUser currentUser;
     private EditText Email,Password;
     private Button RegisterButton;
     private TextView AlreadyHaveAccount;
@@ -40,7 +40,7 @@ public class  RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         InitializeFields();
-
+        currentUserId = registerAuth.getCurrentUser().getUid();
         registerAuth= FirebaseAuth.getInstance();
         RootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -82,14 +82,23 @@ public class  RegisterActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
+
+                                String deviceToken = FirebaseInstanceId.getInstance().getToken();
+
+
+
+
+
+
                                 reference = FirebaseDatabase.getInstance();
                                 RootRef = reference.getReference("Users");
-                                String currentUser = Objects.requireNonNull(registerAuth.getCurrentUser()).getUid();
+
+                                RootRef.child("Users Profile").child(currentUserId).child("device_token").setValue(deviceToken);
                                 String email = Email.getEditableText().toString();
                                 String password = Password.getEditableText().toString();
                                 UserHelper userHelper = new UserHelper(email,password);
                                 SendUserToMainActivity();
-                                RootRef.child(currentUser).setValue(userHelper);
+                                RootRef.child(currentUserId).setValue(userHelper);
                                 Toast.makeText(RegisterActivity.this, "Account Created Successfully", Toast.LENGTH_LONG).show();
                             }
                             else
