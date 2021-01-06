@@ -40,7 +40,6 @@ public class  RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         InitializeFields();
-        currentUserId = registerAuth.getCurrentUser().getUid();
         registerAuth= FirebaseAuth.getInstance();
         RootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -91,7 +90,7 @@ public class  RegisterActivity extends AppCompatActivity {
 
 
                                 reference = FirebaseDatabase.getInstance();
-                                RootRef = reference.getReference("Users");
+                                RootRef = reference.getReference("Users Profile");
 
                                 RootRef.child("Users Profile").child(currentUserId).child("device_token").setValue(deviceToken);
                                 String email = Email.getEditableText().toString();
